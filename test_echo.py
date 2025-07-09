@@ -26,7 +26,7 @@ def test_post_json_data():
     result = r.json()
     assert result["data"] == payload
 
-# Отправка обычного текста в теле POST-запроса
+# Отправка текста в теле POST-запроса
 def test_post_plain_text():
     text_payload = "какой-нибудь текст"
     headers = {"Content-Type": "text/plain"}
