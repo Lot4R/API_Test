@@ -9,7 +9,7 @@ def test_echo_get_params():
     data = response.json()
     assert data["args"]["id"] == "123"
     assert data["args"]["key1"] == "value1"
-    assert data["args"]["key2"] == "value2"
+    assert data["args"]["key2"] == "wrong_value2"
 
 # GET-запрос без параметров
 def test_get_no_params():
@@ -31,7 +31,7 @@ def test_post_plain_text():
     text_payload = "какой-нибудь текст"
     headers = {"Content-Type": "text/plain"}
     response = requests.post(f"{BASE_URL}/post", data=text_payload, headers=headers)
-    assert response.status_code == 200
+    assert response.status_code == 500
     result = response.json()
     assert result["data"] == text_payload
 
